@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Purple Pomodoro Widget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="widget" class="mode-pomodoro" aria-label="Pomodoro widget">
+    <!-- Background image elements layered under controls -->
+    <div id="bg-layer">
+      <img id="bg-pomodoro" src="Pomodoro%20background.png" alt="pomodoro background">
+      <img id="bg-short" src="Short%20Break%20background.png" alt="short break background">
+      <img id="bg-long" src="Long%20Break%20background.png" alt="long break background">
+    </div>
+
+    <!-- Invisible mode buttons on top (positioned via CSS) -->
+    <button class="mode-btn mode-btn-short" data-mode="short" aria-label="Short Break"></button>
+    <button class="mode-btn mode-btn-pomodoro" data-mode="pomodoro" aria-label="Pomodoro"></button>
+    <button class="mode-btn mode-btn-long" data-mode="long" aria-label="Long Break"></button>
+
+    <!-- Central rectangle area for timer display -->
+    <div id="display-area">
+      <div id="timer-display">25:00</div>
+    </div>
+
+    <!-- Start and Reset buttons (invisible overlays) -->
+    <button id="start-btn" aria-label="Start timer">START</button>
+    <button id="reset-btn" aria-label="Reset timer">↻</button>
+
+    <!-- Hidden audio element for alarm -->
+    <audio id="alarm-audio" src="alarm.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

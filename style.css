@@ -1,0 +1,115 @@
+:root{
+  --width: 520px;
+}
+*{box-sizing:border-box}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  margin:0;
+  background:#111;
+  font-family: 'Georgia', serif;
+}
+#widget{
+  width:var(--width);
+  height:560px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 6px 0 rgba(255,255,255,0.8) inset, 0 8px 18px rgba(0,0,0,0.6);
+  position:relative;
+  padding:28px;
+}
+
+#/* we now use explicit <img> elements as backgrounds so they can be layered under controls */
+#bg-layer{ position:absolute; inset:28px; border-radius:18px; overflow:hidden; z-index:0; }
+/* tweak these values to nudge the artwork so decorative elements align with the white inner frame */
+:root{ --bg-expand-x: -4%; --bg-expand-y: -8%; --bg-expand-w: 108%; --bg-expand-h: 108%; }
+#bg-layer img{ position:absolute; left:var(--bg-expand-x); top:var(--bg-expand-y); width:var(--bg-expand-w); height:var(--bg-expand-h); object-fit:cover; display:none; transform-origin:center center; }
+#bg-pomodoro{ display:block; }
+
+
+/* Invisible mode buttons placed across the top */
+.mode-btn{
+  position:absolute;
+  top:46px;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+}
+.mode-btn-short{ left:60px; width:120px; height:56px; }
+.mode-btn-pomodoro{ left:50%; transform:translateX(-50%); width:140px; height:56px; }
+.mode-btn-long{ right:63px; width:120px; height:56px; }
+
+/* Timer display rectangle (center area) */
+#display-area{
+  position:absolute;
+  left:56px;
+  right:56px;
+  top:100px;
+  height:220px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  z-index:2;
+}
+#timer-display{
+  font-size:96px;
+  line-height:1;
+  font-weight:600;
+  color:#ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.45);
+  letter-spacing:2px;
+}
+
+/* Start button (large) - positioned below display */
+#start-btn{
+  position:absolute;
+  left:56px;
+  bottom:180px;
+  width:260px;
+  height:60px;
+  border:0;
+  background:transparent;
+  font-size:44px;
+  color:transparent; /* text visually hidden: background image handles visuals */
+  cursor:pointer;
+  z-index:2;
+}
+
+/* Reset small circular button */
+#reset-btn{
+  position:absolute;
+  right:86px; /* moved 30px left */
+  bottom:180px;
+  width:60px;
+  height:60px;
+  border:0;
+  background:transparent;
+  font-size:28px;
+  color:transparent;
+  cursor:pointer;
+  z-index:2;
+}
+
+/* Bottom info area is part of the background image; ensure pointer-events none so clicks through */
+
+/* For accessibility outline on focus (visible only when keyboard navigating) */
+.mode-btn:focus, #start-btn:focus, #reset-btn:focus{ outline:2px dashed rgba(255,255,255,0.6); }
+
+/* Debug helpers: add class "debug" to <body> to show button outlines and bg bounds */
+body.debug .mode-btn-short,
+body.debug .mode-btn-pomodoro,
+body.debug .mode-btn-long,
+body.debug #start-btn,
+body.debug #reset-btn{
+  outline: 2px dashed rgba(0,255,200,0.9);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.2) inset;
+  z-index:3;
+}
+body.debug #bg-layer{ outline: 2px dotted rgba(255,255,255,0.5); }
+body.debug #bg-layer img{ opacity:0.95; display:block; }
