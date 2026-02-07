@@ -11,16 +11,6 @@ body{
   background:#191919;
   font-family: 'Georgia', serif;
 }
-#widget{
-  width:var(--width);
-  height:560px;
-  border-radius:22px;
-  background-size:cover;
-  background-position:center;
-  box-shadow:0 6px 0 rgba(255,255,255,0.8) inset, 0 8px 18px rgba(0,0,0,0.6);
-  position:relative;
-  padding:28px;
-}
 
 #/* we now use explicit <img> elements as backgrounds so they can be layered under controls */
 #bg-layer{ position:absolute; inset:28px; border-radius:18px; overflow:hidden; z-index:0; }
@@ -113,5 +103,6 @@ body.debug #reset-btn{
 }
 body.debug #bg-layer{ outline: 2px dotted rgba(255,255,255,0.5); }
 body.debug #bg-layer img{ opacity:0.95; display:block; }
+
 
 
