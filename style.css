@@ -113,3 +113,4 @@ body.debug #reset-btn{
 }
 body.debug #bg-layer{ outline: 2px dotted rgba(255,255,255,0.5); }
 body.debug #bg-layer img{ opacity:0.95; display:block; }
+
